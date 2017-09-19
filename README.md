@@ -1,2 +1,2 @@
 # BlogApp
-一个专门展示博客的app
+一个专门展示博客的app，这个app将引入一个完整的项目框架，帮助开发者快速搭建app，并且会有专门的博客详细解析框架中用到的一些技术，比如MVVM，ButterKnife,Retrofit等

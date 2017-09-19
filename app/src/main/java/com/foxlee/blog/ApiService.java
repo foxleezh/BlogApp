@@ -4,9 +4,11 @@ import io.reactivex.Observable;
 import retrofit2.http.GET;
 
 
-public interface ApiService {
+public class ApiService{
 
     @GET("blog/blogList")
-    Observable<NewsModuleInfo> getNews();
+    Observable<NewsModuleInfo> getNews(){
+       return null;
+    }
 
 }
