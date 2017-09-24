@@ -1,31 +1,53 @@
 apply plugin: 'com.android.library'
 
+
 android {
-    compileSdkVersion 26
-    buildToolsVersion "26.0.1"
+    compileSdkVersion APP_COMPILE_SDK_VERSION as int
+    buildToolsVersion APP_BUILD_TOOLS_VERSION
+    useLibrary 'org.apache.http.legacy'
+    if(DEBUG.toBoolean()) {
+        defaultPublishConfig "debug"
+    }else {
+        defaultPublishConfig "release"
+    }
 
     defaultConfig {
-        minSdkVersion 10
-        targetSdkVersion 26
+        minSdkVersion APP_MIN_SDK_VERSION as int
+        targetSdkVersion APP_TARGET_SDK_VERSION as int
         versionCode 1
         versionName "1.0"
-
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
     }
+
     buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFile 'proguard.cfg'
+
+        }
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFile 'proguard.cfg'
+
         }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
     }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    compile 'com.android.support:appcompat-v7:26.+'
-    testCompile 'junit:junit:4.12'
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.squareup.okhttp:okhttp-urlconnection:2.4.0'
+    compile 'com.squareup.okhttp:okhttp:2.4.0'
+    compile 'com.google.code.gson:gson:2.7'
+    compile 'com.nineoldandroids:library:2.4.0'
+    compile "com.android.support:support-v4:${APP_ANDROID_SUPPORT_VERSION}"
+    compile "com.android.support:appcompat-v7:${APP_ANDROID_SUPPORT_VERSION}"
+    compile "com.android.support:design:${APP_ANDROID_SUPPORT_VERSION}"
+    compile 'com.parse.bolts:bolts-android:1.2.0'
+    compile 'com.jakewharton:butterknife:8.4.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
+    compile 'de.greenrobot:eventbus:2.4.0'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
 }
