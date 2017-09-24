@@ -96,10 +96,10 @@ public class ContextUtil {
 //            return 0;
 //        }
 //        boolean hasBackKey = KeyCharacterMap.deviceHasKey(KeyEvent.KEYCODE_BACK);
-//        GLog.d("foxlee++++", hasMenuKey+" <-- hasMenuKey");
-//        GLog.d("foxlee++++", hasBackKey+" <-- hasBackKey");
+//        FLog.d("foxlee++++", hasMenuKey+" <-- hasMenuKey");
+//        FLog.d("foxlee++++", hasBackKey+" <-- hasBackKey");
 //
-//        GLog.d("foxlee++++", height+" <-- resources.getDimensionPixelSize(resourceId)");
+//        FLog.d("foxlee++++", height+" <-- resources.getDimensionPixelSize(resourceId)");
         if (navigationBarExist(activity)) {
             //获取NavigationBar的高度
             Resources resources = activity.getResources();
