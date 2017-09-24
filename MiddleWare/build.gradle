@@ -1,48 +1,51 @@
-apply plugin: 'com.android.application'
-apply plugin: 'me.tatarka.retrolambda'
+apply plugin: 'com.android.library'
+
 
 android {
     compileSdkVersion APP_COMPILE_SDK_VERSION as int
     buildToolsVersion APP_BUILD_TOOLS_VERSION
+//    useLibrary 'org.apache.http.legacy'
+    if(DEBUG.toBoolean()) {
+        defaultPublishConfig "debug"
+    }else {
+        defaultPublishConfig "release"
+    }
+
     defaultConfig {
-        applicationId "com.foxlee.blog"
         minSdkVersion APP_MIN_SDK_VERSION as int
         targetSdkVersion APP_TARGET_SDK_VERSION as int
         versionCode APP_VERSION_CODE as int
         versionName APP_VERSION
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-//        externalNativeBuild {
-//            cmake {
-//                cppFlags "-frtti -fexceptions"
-//            }
-//        }
     }
+
+    dataBinding {
+        enabled true
+    }
+
     buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFile 'proguard.cfg'
+
+        }
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFile 'proguard.cfg'
+
         }
     }
-//    externalNativeBuild {
-//        cmake {
-//            path "CMakeLists.txt"
-//        }
-//    }
     compileOptions {
-        targetCompatibility 1.8
-        sourceCompatibility 1.8
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
     }
 }
+
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:25.3.1'
     testCompile 'junit:junit:4.12'
-    compile project(':MiddleWare')
-
-
-
+    compile project(':BaseComponent')
 }

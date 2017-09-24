@@ -6,15 +6,14 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import com.foxleezh.middleware.net.ApiManager;
+
 import io.reactivex.Notification;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
-import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -44,16 +43,7 @@ public class MainActivity extends AppCompatActivity {
         tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                Retrofit retrofit = new Retrofit.Builder()
-                        .baseUrl("http://owegaqfyy.bkt.clouddn.com/")
-                        //增加返回值为Gson的支持(以实体类返回)
-                        .addConverterFactory(GsonConverterFactory.create())
-                        //增加返回值为Oservable<T>的支持
-                        .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                        .client(getOkHttpClient())
-                        .build();
-                Observable<Notification<NewsModuleInfo>> combineRequestOb = retrofit.create(ApiService.class).getNews()
+                Observable<Notification<NewsModuleInfo>> combineRequestOb = ApiManager.doApi("http://owegaqfyy.bkt.clouddn.com/",ApiService.class).getNews(System.currentTimeMillis())
                         .map(newsModuleInfo -> {
                             Log.d("foxlee++++++++",Thread.currentThread().getName());
                             return newsModuleInfo;
