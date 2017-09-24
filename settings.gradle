@@ -1,2 +1,2 @@
 include ':app', ':BaseComponent', ':MiddleWare', ':HomeModule'
-include ':HomeModule'
+include ':HomeModule',':MeModule'

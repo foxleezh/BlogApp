@@ -1,10 +1,10 @@
-package com.foxlee.blog;
+package com.foxleezh.blog.modules;
 
 /**
  * Created by Administrator on 2017/9/16.
  */
 
-public class NewsModule {
+public class HomeModule {
 
 
     /**
