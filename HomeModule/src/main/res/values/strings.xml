@@ -1,0 +1,14 @@
+<resources>
+    <string name="m_news_app_name">资讯</string>
+
+
+
+    <!-- 动态-->
+    <string name="m_news_title">资讯</string>
+    <string name="m_news_collection">收藏</string>
+    <string name="m_news_tab">实时新闻;要闻</string>
+
+    <!-- 收藏-->
+    <string name="m_news_collection_title">收藏夹</string>
+    <string name="m_news_collection_no_data">您尚未收藏任何文章</string>
+</resources>

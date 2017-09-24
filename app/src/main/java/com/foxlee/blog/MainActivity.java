@@ -1,64 +1,81 @@
 package com.foxlee.blog;
 
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
-import android.widget.TextView;
 
-import com.foxleezh.middleware.net.ApiManager;
-
-import io.reactivex.Notification;
-import io.reactivex.Observable;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.schedulers.Schedulers;
-import okhttp3.OkHttpClient;
-import okhttp3.logging.HttpLoggingInterceptor;
+import com.foxlee.blog.databinding.ActivityMainBinding;
+import com.foxleezh.basecomponent.util.ContextUtil;
 
 public class MainActivity extends AppCompatActivity {
 
-
-    private OkHttpClient getOkHttpClient() {
-        //日志显示级别
-        HttpLoggingInterceptor.Level level= HttpLoggingInterceptor.Level.BODY;
-        //新建log拦截器
-        HttpLoggingInterceptor loggingInterceptor=new HttpLoggingInterceptor(
-                message -> Log.d("zcb","OkHttp====Message:"+message));
-        loggingInterceptor.setLevel(level);
-        //定制OkHttp
-        OkHttpClient.Builder httpClientBuilder = new OkHttpClient
-                .Builder();
-        //OkHttp进行添加拦截器loggingInterceptor
-        httpClientBuilder.addInterceptor(loggingInterceptor);
-        return httpClientBuilder.build();
-    }
-
+    private long exitTime;
+    ActivityMainBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        binding =DataBindingUtil.setContentView(this,R.layout.activity_main);
+        binding.setVariable(BR.viewModel,new MainViewModel());
 
-        // Example of a call to a native method
-        TextView tv = (TextView) findViewById(R.id.sample_text);
-        tv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Observable<Notification<NewsModuleInfo>> combineRequestOb = ApiManager.doApi("http://owegaqfyy.bkt.clouddn.com/",ApiService.class).getNews(System.currentTimeMillis())
-                        .map(newsModuleInfo -> {
-                            Log.d("foxlee++++++++",Thread.currentThread().getName());
-                            return newsModuleInfo;
-                        })
-                        .subscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .materialize().share();
-
-                combineRequestOb.filter(Notification::isOnNext)
-                        .subscribe(m ->Log.d("foxlee++++++++",Thread.currentThread().getName()));
-                combineRequestOb.filter(Notification::isOnError)
-                        .subscribe(m ->Log.d("foxlee++++++++",Thread.currentThread().getName()));
-            }
-        });
+//        tv.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Observable<Notification<NewsModuleInfo>> combineRequestOb = ApiManager.doApi("http://owegaqfyy.bkt.clouddn.com/",ApiService.class).getNews(System.currentTimeMillis())
+//                        .map(newsModuleInfo -> {
+//                            Log.d("foxlee++++++++",Thread.currentThread().getName());
+//                            return newsModuleInfo;
+//                        })
+//                        .subscribeOn(Schedulers.io())
+//                        .observeOn(AndroidSchedulers.mainThread())
+//                        .materialize().share();
+//
+//                combineRequestOb.filter(Notification::isOnNext)
+//                        .subscribe(m ->Log.d("foxlee++++++++",Thread.currentThread().getName()));
+//                combineRequestOb.filter(Notification::isOnError)
+//                        .subscribe(m ->Log.d("foxlee++++++++",Thread.currentThread().getName()));
+//            }
+//        });
     }
 
+    public void onClick(View v){
+        switch (v.getId()){
+            case R.id.rl_home:
+                binding.getViewModel().tabHomeSelected=true;
+                binding.getViewModel().tabMeSelected=false;
+                binding.getViewModel().notifyPropertyChanged(BR.tabHomeSelected);
+                binding.getViewModel().notifyPropertyChanged(BR.tabMeSelected);
+                break;
+            case R.id.rl_me:
+                binding.getViewModel().tabHomeSelected=false;
+                binding.getViewModel().tabMeSelected=true;
+                binding.getViewModel().notifyPropertyChanged(BR.tabHomeSelected);
+                binding.getViewModel().notifyPropertyChanged(BR.tabMeSelected);
+                break;
+        }
+    }
+
+
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN) {
+            if ((System.currentTimeMillis() - exitTime) > 2000) {
+                ContextUtil.toastTips(MainActivity.this, "再按一次退出程序");
+                exitTime = System.currentTimeMillis();
+            } else {
+                finish();
+//                TinkerUtils.setBackground(true);
+//                if(shouldKill){
+//                    ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+//                    manager.killBackgroundProcesses(getPackageName());
+//                    android.os.Process.killProcess(android.os.Process.myPid());
+//                }
+            }
+
+        }
+        return true;
+    }
 
 }

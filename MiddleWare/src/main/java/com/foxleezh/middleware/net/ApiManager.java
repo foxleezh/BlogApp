@@ -1,9 +1,6 @@
 package com.foxleezh.middleware.net;
 
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
@@ -18,9 +15,8 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
- * des:retorfit api
- * Created by xsf
- * on 2016.06.15:47
+ * Created by foxleezh on 2017/9/24.
+ * 本类介绍 Api请求类，封装retrofit
  */
 public class ApiManager {
     /**读超时时长，单位：毫秒*/
@@ -56,10 +52,9 @@ public class ApiManager {
                 .addInterceptor(logInterceptor)
                 .build();
 
-        Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ").serializeNulls().create();
         retrofit = new Retrofit.Builder()
                 .client(okHttpClient)
-                .addConverterFactory(GsonConverterFactory.create(gson))
+                .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .baseUrl(baseUrl)
                 .build();

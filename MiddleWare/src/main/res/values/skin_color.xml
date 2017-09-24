@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources> <!-- 换肤颜色表，颜色以"sk"开头，看名知意-->
+
+    <!-- 标题栏 ======================================================================================================== -->
+
+    <!-- 标题栏背景色-->
+    <color name="sk_title_bar">#fc7500</color>
+
+    <!-- 标题栏文字颜色-->
+    <color name="sk_title_bar_text">#fff</color>
+
+    <!-- tab栏、表单 ======================================================================================================== -->
+
+    <!-- 全局底色-->
+    <color name="sk_whole_bg">#f8f8f8</color>
+
+    <!-- 底部操作Tab背景色-->
+    <color name="sk_bottom_bar">#fff</color>
+
+    <!-- 全局tab颜色-->
+    <color name="sk_tab_text">#fc7500</color>
+
+    <!-- 全局tab未选中颜色-->
+    <color name="sk_tab_text_unselect">#999999</color>
+
+    <!-- 表单线颜色-->
+    <color name="sk_card_line">#e5e5e5</color>
+
+    <!-- 表单背景色-->
+    <color name="sk_card_bg">#fff</color>
+
+    <!-- 表单title背景色-->
+    <color name="sk_card_title_bg">#f3f5f7</color>
+
+    <!-- 表单press背景色-->
+    <color name="sk_card_press_bg">#1a000000</color>
+
+
+    <!-- dialog栏 ======================================================================================================== -->
+
+    <!-- 弹窗背景色-->
+    <color name="sk_dialog_bg">#fff</color>
+
+    <!-- 弹窗阴影色-->
+    <color name="sk_dialog_shadow">#10000000</color>
+
+    <!-- 弹窗主文字颜色-->
+    <color name="sk_dialog_main_text">#fc7500</color>
+
+    <!-- 弹窗辅文字颜色-->
+    <color name="sk_dialog_sub_text">#8a000000</color>
+
+    <!-- 弹窗button press背景色-->
+    <color name="sk_dialog_press_bg">#f0f0f0</color>
+
+    <!-- 弹窗不可点击文字颜色-->
+    <color name="sk_dialog_unclick">#cccccc</color>
+
+    <!-- 弹窗主分割线-->
+    <color name="sk_dialog_main_line">#384e68</color>
+
+    <!-- 弹窗辅分割线-->
+    <color name="sk_dialog_sub_line">#e5e5e5</color>
+
+    <!-- Loading对话框背景色-->
+    <color name="sk_loading_dialog_bg">#9900040a</color>
+
+    <!-- Pop弹窗背景色，下弹一样-->
+    <color name="sk_pop_bg">#fff</color>
+
+    <!-- Pop弹窗分割线-->
+    <color name="sk_pop_sub_line">#314764</color>
+
+    <!-- 大Tab背景色，与title_bar颜色一致-->
+    <color name="sk_big_tab_bg">#384e68</color>
+
+    <!-- 小Tab背景色，与title_bar颜色一致-->
+    <color name="sk_small_tab_bg">#fff</color>
+
+    <!-- 文字栏 ======================================================================================================== -->
+
+    <!-- 全局主文字颜色-->
+    <color name="sk_main_text">#454545</color>
+
+    <!-- 全局辅文字颜色-->
+    <color name="sk_sub_text">#aeaeae</color>
+
+    <!-- 全局辅信息文字颜色-->
+    <color name="sk_sub_info_text">#c2c1c0</color>
+
+    <!-- 全局Hint颜色-->
+    <color name="sk_hint_text">#9e9e9e</color>
+
+    <!-- 全局button背景颜色-->
+    <color name="sk_button_bg">#fc7500</color>
+
+    <!-- 全局button按下背景颜色-->
+    <color name="sk_button_bg_press">#99fc7500</color>
+
+    <!-- 全局button文字背景颜色-->
+    <color name="sk_button_text">#fff</color>
+
+    <!-- 特殊颜色 ======================================================================================================== -->
+
+    <!-- 红点颜色 -->
+    <color name="sk_round_circle">#ff9c08</color>
+
+    <!-- progress颜色 -->
+    <color name="sk_progress_color">#fc7500</color>
+
+    <!-- 所有边框颜色 -->
+    <color name="sk_border">#e5e5e5</color>
+
+    <color name="tr_tab_normal">#b2ffffff</color>
+
+    <color name="sk_message_color">#fff</color>
+
+</resources>

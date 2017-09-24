@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="public_trans">#0000</color>       <!-- 按下效果默认态-->
+    <color name="public_white">#fff</color>       <!-- 按下效果默认态-->
+    <color name="public_touchback_normal">#0000</color>       <!-- 按下效果默认态-->
+    <color name="public_touchback_press">#1a000000</color>       <!-- 标题栏背景色-->
+
+    <color name="public_title_bg_color">#157ad5</color>       <!-- 标题栏背景色-->
+    <color name="public_title_doubleline_up_text_color">#FFFFFF</color>       <!-- 标题栏双行文字  上方文字颜色-->
+    <color name="public_title_doubleline_down_text_color">#FFFFFF</color>       <!-- 标题栏双行文字  下方文字颜色-->
+    <color name="public_title_tab_stroke_color">#ffffff</color>       <!-- 标题栏tab  边框颜色-->
+    <color name="public_title_tab_normal_text_color">#ffffff</color>       <!-- 标题栏tab  未选中文字颜色-->
+    <color name="public_title_tab_normal_fill_color">#00000000</color>       <!-- 标题栏tab  未选中填充颜色-->
+    <color name="public_title_tab_press_text_color">#157ad5</color>       <!-- 标题栏tab  选中文字颜色-->
+    <color name="public_title_tab_press_fill_color">#ffffff</color>       <!-- 标题栏tab  选中填充颜色-->
+    <color name="public_title_switch_text_color">#ffffff</color>       <!-- 标题栏左右切换  文字颜色-->
+    <color name="public_title_left_text_color">#ffffff</color>          <!--标题右边的文字颜色-->
+
+
+    <color name="public_dialog_center_title_text_color">#000</color>       <!-- 弹窗中部  标题文字颜色-->
+    <color name="public_dialog_center_bg_color">#ffffff</color>     <!--弹窗中部 背景色-->
+    <color name="public_dialog_center_line_color">#e5e5e5</color>         <!--弹窗中部 分割线颜色-->
+    <color name="public_dialog_center_content_text_color">#8a000000</color>         <!--弹窗中部 正文颜色-->
+    <color name="public_dialog_center_bottom_ignore_text_color">#666666</color>       <!--弹窗中部  操作按钮忽略颜色-->
+    <color name="public_dialog_center_bottom_ok_text_color">#157ad5</color>        <!--弹窗中部 操作按钮确定颜色-->
+    <color name="public_dialog_center_bottom_cancel_text_color">#666666</color>          <!--弹窗中部 操作按钮取消颜色-->
+    <color name="public_dialog_bg_color">#80000000</color>
+
+    <color name="public_form_red_point_bg_color">#e25534</color>       <!-- 红点颜色 -->
+    <color name="public_form_red_point_text_color">#ffffff</color>       <!-- 红点中文字颜色 -->
+    <color name="public_form_bg_color">#ffffff</color>      <!--表单背景色-->
+    <color name="public_form_main_text_color">#454545</color>   <!--表单主文字颜色-->
+    <color name="public_form_sub_text_color">#aeaeae</color>   <!--表单辅助文字颜色-->
+    <color name="public_form_line_color">#e5e5e5</color>   <!--分割线颜色-->
+    <color name="public_form_input_hint_text_color">#aeaeae</color> <!--表单输入框提示-->
+    <color name="public_form_input_input_tex_color">#23354b</color> <!--表单输入框-->
+    <color name="public_form_input_btn_text_color">#ffffff</color>  <!--表单右边发送验证码按钮的文字颜色-->
+</resources>

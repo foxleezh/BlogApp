@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Application theme. -->
+    <style name="AppTheme">
+    </style>
+
+
+    <style name="Theme.SwipeBackLayout" parent="AppTheme">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@color/public_trans</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="card_line">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1px</item>
+    </style>
+</resources>
